@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+	  <h1><%= form_title %></h1>
+	  <% if @post.errors.any? %>
+	   <div class="alert alert-danger">
+	     <ul>
+	       <% @post.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	       <% end %>
+	     </ul>
+	   </div>
+	  <% end %>
+	  <%= form_for @post do |p|%>
+
+	    <div class="form-group">
+          <%= p.label :title, "Título" %>
+	      <%= p.text_field :title, class:"form-control", autofocus: true%>
+	    </div>
+
+	    <div class="form-group">
+	      <%= p.label :body, "Cuerpo" %>
+	      <%= p.text_area :body, cols: "30", rows: "10", class:"form-control", autofocus: true%>
+	    </div>
+
+	    <div class="form-group">
+	      <%= p.submit form_title, class:"btn btn-primary"%>
+	    </div>
+	  <% end %>
+	</div>
+  </div>
+</div>

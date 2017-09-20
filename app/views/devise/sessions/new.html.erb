@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+<h2>Ingresa</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, class: "form-control input-lg" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :contraseña %><br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control input-lg" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="form-group">
+      <%= f.check_box :remember_me %>
+      <%= f.label :recuerdame %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Ingresar", class: "btn btn-primary btn-lg btn-block" %>
+  </div>
+<% end %>
+<br>
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "¿Olvidaste tu Contraseña?", new_password_path(resource_name) %><br />
+<% end -%>
+</div>
+</div>
+</div>

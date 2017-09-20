@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SuperBlog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+   <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="col-sm-10 col-sm-offset-1">
+        <%= link_to "SuperBlog", posts_path, class: "navbar-brand" %>
+        <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Salir'.html_safe, destroy_user_session_path, method: :delete, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo Post'.html_safe, new_post_path, class:"nav-link"%>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to '<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Registrarse'.html_safe, new_user_registration_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Ingresar'.html_safe,new_user_session_path, class:"nav-link" %>
+            </li>
+          <% end %>
+         </ul>
+        </div>
+      </div>
+    </div>
+   </nav>
+
+
+  <% if flash[:notice] %>
+    <div class="alert alert-info" role="alert"><a href="#" class="close" data-dismiss="alert" arial-label="close">x</a><%= flash[:notice] %></div>
+  <% end %>
+  <%= yield %>
+
+  </body>
+</html>

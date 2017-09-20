@@ -1,0 +1,13 @@
+es:
+    activerecord:
+      attributes:
+        post:
+          title: "Título"
+          body: "Cuerpo"
+
+    devise:
+      registrations:
+        signed_up: "Te has registrado correctamente"
+      sessions:
+        signed_out: "Has cerrado tu sesión del blog"
+        signed_in: "Escribe ahora mismo Tú nuevo Post"
