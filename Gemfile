@@ -32,7 +32,7 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'jquery-rails'
 
 gem "font-awesome-rails"
-
+require 'rbconfig'
 gem 'wdm', '~> 0.1.1'
 
 gem 'bcrypt'
