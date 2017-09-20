@@ -33,7 +33,7 @@ gem 'jquery-rails'
 
 gem "font-awesome-rails"
 
-gem 'wdm', '>= 0.1.0'
+gem 'wdm', '~> 0.1.1'
 
 gem 'bcrypt'
 
@@ -53,7 +53,7 @@ gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'listen', '~> 3.0.5'# Adds support for Capybara system testing and selenium driver
+  gem 'listen', '~> 3.1', '>= 3.1.5'# Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
